@@ -24,7 +24,7 @@ jobs:
 
     - name: Build Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/grocery-project ./grocery-project
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/grocery-project .
 
     - name: Push Image
       run: |
