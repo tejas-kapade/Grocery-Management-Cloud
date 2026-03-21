@@ -2,8 +2,9 @@
 ### Project Overview <br>
 
 - **Project Name:** Grocery Management 
-- **Date:** 29/10/2023
-
+- **Date:** 29/10/2023  (When project first build)
+- See **Project-Documentation.pdf** for all the steps to perform
+  
 The **Grocery Management** project is a cloud-based solution that utilizes Azure services to let you do shopping of groceries using web-application deployed on AKS cluster.
 
 <br>
