@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./website:/var/www/html
+      - ./Grocery Management/Grocery_Management:/var/www/html
     depends_on:
       - grocy-database-service
 
