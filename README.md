@@ -2,7 +2,6 @@
 ### Project Overview <br>
 
 - **Project Name:** Grocery Management 
-- **Group Members:** Tejas Kapade, Srushti Bidaye.
 - **Date:** 29/10/2023
 
 The **Grocery Management** project is a cloud-based solution that utilizes Azure services to let you do shopping of groceries using web-application deployed on AKS cluster.
@@ -23,6 +22,8 @@ The **Grocery Management** project is a cloud-based solution that utilizes Azure
 2. **Azure Load Balancer**: It is a network service that distributes incoming network traffic across multiple virtual machines to ensure high availability, scalability, and reliability for applications hosted in Azure.
 
 3. **Virtual Machine Scale Set (VMSS)**: It is a service that allows you to deploy and manage a group of identical virtual machines. It automatically increases or decreases the number of VM instances in response to changes in demand, helping to ensure high availability, load distribution, and efficient resource utilization for your applications.
+
+4. **GithubActions**: Used for triggering any changes made in repository to check for integration -> build docker image -> push to docker hub (CI pipeline)
 
 
 
