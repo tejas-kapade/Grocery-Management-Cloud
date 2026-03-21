@@ -1,0 +1,7 @@
+.git
+.gitignore
+README.md
+node_modules
+db_data
+*.log
+Project-Documentation.pdf
