@@ -28,6 +28,9 @@ resource "google_compute_instance" "vm_instance" {
     
     # Update packages
     apt-get update -y
+
+    # Install nmap
+    apt-get install nmap -y
     
     # Install Docker
     apt-get install -y docker.io
@@ -67,6 +70,10 @@ resource "google_compute_instance" "vm_instance" {
 
    docker compose down
    docker compose up -d
+
+   nmap localhost
+   echo "___________________________________________________________________________________________________________"
+   echo "Grocy-Here application has been successfully installed and now available at port 80 of this machine...!!!"
   EOF
 
   tags = ["http-server"]
