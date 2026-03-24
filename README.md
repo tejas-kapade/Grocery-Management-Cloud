@@ -86,8 +86,9 @@ The **Grocery Management** project is a cloud-based solution that utilizes Azure
 ### After VM creation you can check if all required files are insatlled (It will take 2-5min to install everything automatically)
 ### Copy below command to VM just created by Terraform you can tract progress of installation
 ### watch -n 1 tail -n 40 /var/log/startup-script.log
-After successfull installation you will see this:
-<img width="1090" height="543" alt="image" src="https://github.com/user-attachments/assets/473e7727-9089-4d4c-ba13-b96335a25e19" /
+After successfull installation you will see this: <br>
+<img width="1919" height="970" alt="image" src="https://github.com/user-attachments/assets/1d5042b9-311e-4e1e-8aae-fd3ce4b8d7e9" />
+
 
 ## Now you can use server public IP to see website
 
