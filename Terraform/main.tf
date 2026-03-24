@@ -1,12 +1,13 @@
 provider "google" {
-  project = "project-28225aef-d526-47fe-81e"  #Add your project ID here
-  region  = "asia-south1" #Choose your Region and zone 
-  zone    = "asia-south1-a" 
+  project = var.project_id  #Add your project ID here
+  region  = var.region #Choose your Region and zone 
+  zone    = var.zone
 }
 
 resource "google_compute_instance" "vm_instance" {
   name         = "grocy-here-vm" #you can change VM name here
   machine_type = "e2-micro" #You can change VM type (this is most cheapest one)
+  zone         = var.zone
 
   boot_disk {
     initialize_params {

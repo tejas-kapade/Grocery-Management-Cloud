@@ -29,21 +29,23 @@ $times = date("h:i:s a");
         	
         if($count == 1 && $name=='admin'){
         header('Location: admin.php');
+        exit;
         }
         elseif($count == 1){  
-        echo "<br>";
-        echo "<br>";
+            //echo "<br>";
+            //echo "<br>";
             $vn = $conn->prepare("INSERT INTO entries(name,password,date,time) VALUES (?,?,?,?)");
- $vn->bind_param("ssss",$name,$psw,$dates,$times);
- $vn->execute();
-  $vn->close();
-            echo "<h3 style='color:blue;'><center> Login successful </center></h3>";  
-            echo "<hr/>";
-            echo "<h1> Welcome ".$name."</h1>";
+            $vn->bind_param("ssss",$name,$psw,$dates,$times);
+            $vn->execute();
+            $vn->close();
+            //echo "<h3 style='color:blue;'><center> Login successful </center></h3>";  
+            //echo "<hr/>";
+            //echo "<h1> Welcome ".$name."</h1>";
             header('Location: order.html');
+            exit;
         } 
         else{  
-        echo "<br>";
+            echo "<br>";
             echo '<div style="border: 2px solid tomato; background-color: #f2f2f2; padding: 10px; border-radius: 5px; text-align: center; font-family: Arial, sans-serif;color:tomato;"><h2> !! Login Failed !!<br><br><br>Incorrect Username or Passowrd...</h2><br><br>'.'<a href="login.html" style="background-color: #008CBA; color: white; padding: 10px; border-radius: 5px; text-decoration: none;">Login again</a> <a href="index.html" style="background-color: #008CBA; color: white; padding: 10px; border-radius: 5px; text-decoration: none;">Back to Home</a><br></div>';
               
         }   
