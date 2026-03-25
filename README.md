@@ -1,4 +1,4 @@
-# Grocery-Management website on Azure Kubernetes Service (AKS)<br>
+# Grocery-Management DevOps Project <br>
 ### Project Overview <br>
 
 - **Project Name:** Grocery Management 
