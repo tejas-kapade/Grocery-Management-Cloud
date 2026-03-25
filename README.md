@@ -4,6 +4,9 @@
 - **Project Name:** Grocery Management 
 - See **Project-Documentation.pdf** for all the steps to perform
 
+###  Project Workflow: <br>
+<img width="1500" height="1395" alt="Project-Workflow" src="https://github.com/user-attachments/assets/4e2fbd32-03f3-426e-99ce-95cd8aae8398" />
+
 ### Technologies used
 - **Docker Compose**  (For runnin 2 containers together, 1: Web, 2: MariaDB)
 - **Github Actions**  (For CI pipeline to build docker image and push to docker hub)
