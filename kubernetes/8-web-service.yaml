@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: grocery-app
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+  # For production, consider using NodePort and setting up Ingress instead
+  # type: NodePort
+  # ports:
+  #   - protocol: TCP
+  #     port: 80
+  #     targetPort: 80
+  #     nodePort: 30080

@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: grocery-storage
+provisioner: kubernetes.io/gce-pd
+allowVolumeExpansion: true
+# For different cloud providers, change provisioner:
+# AWS: ebs.csi.aws.com
+# Google Cloud: kubernetes.io/gce-pd
+# Azure: kubernetes.io/azure-disk
+# Local or On-Premise: use local provisioner or NFS
+volumeBindingMode: WaitForFirstConsumer
