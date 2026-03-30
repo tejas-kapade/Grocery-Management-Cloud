@@ -1,10 +1,20 @@
-# Grocery-Management website on Azure Kubernetes Service (AKS)<br>
+# Grocery-Management DevOps Project <br>
 ### Project Overview <br>
 
 - **Project Name:** Grocery Management 
-- **Date:** 29/10/2023  (When project first build)
 - See **Project-Documentation.pdf** for all the steps to perform
-  
+
+###  Project Workflow: <br>
+<img width="1500" height="1395" alt="Project-Workflow" src="https://github.com/user-attachments/assets/4e2fbd32-03f3-426e-99ce-95cd8aae8398" />
+
+### Technologies used
+- **Docker Compose**  (For runnin 2 containers together, 1: Web, 2: MariaDB)
+- **Github Actions**  (For CI pipeline to build docker image and push to docker hub)
+- **Terraform**       (For VM creation and startup script to automatically install everything, you can track progress at /var/log/startup-script.log inside VM)
+- **Kubernetes**      (Used Azure Kubernetes Service for container orchestration)
+
+###Default admin login: user: admin psw: 9090
+
 The **Grocery Management** project is a cloud-based solution that utilizes Azure services to let you do shopping of groceries using web-application deployed on AKS cluster.
 
 <br>
@@ -70,11 +80,20 @@ The **Grocery Management** project is a cloud-based solution that utilizes Azure
 ### 3. Load Balancer
 ![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/a7a441fd-c476-4103-932a-3a219fb47fa8)
 ![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/a1e7e04b-039a-439e-bb14-3f56af7ed784)
-<br>
+<br><br>
 ## For more Step-By-Step explaination please refer our Project-Documentation:
 ### Link For Documentation: [Project-Documentation.pdf](https://github.com/Tejas-K90/Grocery-Management/blob/main/Project-Documentation.pdf)
 
-<br>
+<br><br>
+
+### After VM creation you can check if all required files are insatlled (It will take 2-5min to install everything automatically)
+### Copy below command to VM just created by Terraform you can tract progress of installation
+### watch -n 1 tail -n 40 /var/log/startup-script.log
+After successfull installation you will see this: <br>
+<img width="1919" height="970" alt="image" src="https://github.com/user-attachments/assets/1d5042b9-311e-4e1e-8aae-fd3ce4b8d7e9" />
+
+
+## Now you can use server public IP to see website
 
 # Output Overview
 ![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/cdd78309-2fc4-4629-9ef5-ff732cbe59d8)
