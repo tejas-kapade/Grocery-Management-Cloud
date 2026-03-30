@@ -13,7 +13,7 @@
 - **Terraform**       (For VM creation and startup script to automatically install everything, you can track progress at /var/log/startup-script.log inside VM)
 - **Kubernetes**      (Used Azure Kubernetes Service for container orchestration)
 
-###Default admin login: user: admin psw: 9090
+### Default admin login: user: admin psw: 9090
 
 The **Grocery Management** project is a cloud-based solution that utilizes Azure services to let you do shopping of groceries using web-application deployed on AKS cluster.
 
