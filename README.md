@@ -1,113 +1,141 @@
-# Grocery-Management DevOps Project <br>
-### Project Overview <br>
+﻿# Grocery Management Cloud (DevOps + AKS)
 
-- **Project Name:** Grocery Management 
-- See **Project-Documentation.pdf** for all the steps to perform
+## Overview
 
-###  Project Workflow: <br>
-<img width="1500" height="1395" alt="Project-Workflow" src="https://github.com/user-attachments/assets/4e2fbd32-03f3-426e-99ce-95cd8aae8398" />
+Grocery Management is an end-to-end cloud-native DevOps project demonstrating a complete CI/CD and infrastructure automation pipeline for a grocery web application.
 
-### Technologies used
-- **Docker Compose**  (For runnin 2 containers together, 1: Web, 2: MariaDB)
-- **Github Actions**  (For CI pipeline to build docker image and push to docker hub)
-- **Terraform**       (For VM creation and startup script to automatically install everything, you can track progress at /var/log/startup-script.log inside VM)
-- **Kubernetes**      (Used Azure Kubernetes Service for container orchestration)
-
-### Default admin login: user: admin psw: 9090
-
-The **Grocery Management** project is a cloud-based solution that utilizes Azure services to let you do shopping of groceries using web-application deployed on AKS cluster.
-
-<br>
-
-### -----------------------About This Project------------------------------<br>
-
- *The grocery management project aims to address the following problem statement: "Inefficient and time-consuming grocery shopping processes for consumers and limited inventory control for store owners." This project will provide a comprehensive solution to optimize the grocery shopping experience for consumers by developing a user-friendly mobile application that enables them to create and manage shopping lists, find the most cost-effective products, and access real-time inventory information.* <br>
-### ______________________________________________________________________
+Key components:
+- Docker Compose local deployment (web + MariaDB)
+- GitHub Actions CI pipeline (build & push Docker images)
+- Terraform infrastructure provision (VM and startup automation)
+- Azure Kubernetes Service (AKS) container orchestration
 
 
+## Project status
 
-## Azure Services Used in this Project
-
-1. **Azure Kubernetes Service (AKS)**: Azure Kubernetes Service (AKS) is a managed Kubernetes container orchestration service in Microsoft Azure for deploying, managing, and scaling containerized applications.
-
-2. **Azure Load Balancer**: It is a network service that distributes incoming network traffic across multiple virtual machines to ensure high availability, scalability, and reliability for applications hosted in Azure.
-
-3. **Virtual Machine Scale Set (VMSS)**: It is a service that allows you to deploy and manage a group of identical virtual machines. It automatically increases or decreases the number of VM instances in response to changes in demand, helping to ensure high availability, load distribution, and efficient resource utilization for your applications.
-
-4. **GithubActions**: Used for triggering any changes made in repository to check for integration -> build docker image -> push to docker hub (CI pipeline)
+- [x] Local development with Docker Compose
+- [x] CI/CD pipeline on GitHub Actions
+- [x] Infrastructure provisioning by Terraform
+- [x] Production deployment to AKS
 
 
+## Quick access
 
-## Code overview
-- For Frontend: HTML, CSS, JS,
-- For Backend: PHP,
-- For database MariaDB service is used,<br>
-- Every file required to run the web-app is in /Grocery-Management repository.
-
+Default admin login:
+- username: dmin
+- password: 9090
 
 
-### -----------------------Clone this Repository---------------------------<br>
-- execute command inside your machine<br>
-**$ git clone https://github.com/Tejas-K90/Grocy-Management/**
+## Repository contents
+
+- docker-compose.yaml - local container orchestration (web + MariaDB)
+- Dockerfile - web-app image definition
+- kubernetes/ - Helm manifests for AKS deployment and services
+- Terraform/ - scripts for Azure VM, VMSS, and network setup
+- website/ - PHP/HTML application source code and database seed
+- db-init/init.sql - MariaDB schema and seed statements
 
 
+## Getting started (local environment)
 
-### --------------------------- Database dump-----------------------------------<br>
-- There is "GROCYHERE.sql" file as SQL DUMP file.<br>
-- You can DUMP SQL DATABASE into MARIADB by using these steps<br>
-1. First Make Database named as "GROCERY" inside your mariadb server<br>
-2. Execute this command inside yor linux<br>
-**$ mysql -u root -p GROCERY < GROCYHERE.sql**<br>
-- All tables and data will be imported inside your database<br>
+1. Clone repository:
+   `ash
+   git clone https://github.com/Tejas-K90/Grocy-Management.git
+   cd Grocery-Management-Cloud
+   `
+2. Start services with Docker Compose:
+   `ash
+   docker-compose up -d --build
+   `
+3. Open browser:
+   - app: http://localhost (or configured web port)
 
-
-
-### -----------------------------Apache------------------------------<br>
-- All required files are inside "/Grocery_Management" folder.<br>
-- Complete instalation of apache2 and php inside your machine,<br>
-- Copy this all files from "/Grocery_Management" folder and paste to "/var/www/html" directory inside your machine.<br>
-- start the apache server<br>
-**$ systemctl start apache2**<br>
-### _______________________________________________________________
-
-# Azure Services Overview<br>
-### 1. Azure Kubernetes Service (AKS)
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/3f87e6e7-82a0-4028-9ab0-a6e367a1808a)
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/96cc22b6-48b7-4995-ac1a-77bdef7bf125)
-### 2. Virtual Machine Scale Set (VMSS)
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/095199cb-df41-42de-9aa2-e7a87ad9bdd9)
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/fdf187c7-6154-44e9-bb12-3df13b0aa633)
-### 3. Load Balancer
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/a7a441fd-c476-4103-932a-3a219fb47fa8)
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/a1e7e04b-039a-439e-bb14-3f56af7ed784)
-<br><br>
-## For more Step-By-Step explaination please refer our Project-Documentation:
-### Link For Documentation: [Project-Documentation.pdf](https://github.com/Tejas-K90/Grocery-Management/blob/main/Project-Documentation.pdf)
-
-<br><br>
-
-### After VM creation you can check if all required files are insatlled (It will take 2-5min to install everything automatically)
-### Copy below command to VM just created by Terraform you can tract progress of installation
-### watch -n 1 tail -n 40 /var/log/startup-script.log
-After successfull installation you will see this: <br>
-<img width="1919" height="970" alt="image" src="https://github.com/user-attachments/assets/1d5042b9-311e-4e1e-8aae-fd3ce4b8d7e9" />
+4. Stop and cleanup:
+   `ash
+   docker-compose down
+   `
 
 
-## Now you can use server public IP to see website
+## Database setup (MariaDB)
 
-# Output Overview
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/cdd78309-2fc4-4629-9ef5-ff732cbe59d8)
+1. Create database:
+   `sql
+   CREATE DATABASE GROCERY;
+   `
+2. Import SQL dump:
+   `ash
+   mysql -u root -p GROCERY < db-init/init.sql
+   `
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/f79e2b78-a58c-46dd-aa98-17a8349b23cb)
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/8b90ed7b-1658-417a-94b1-edfaaa91da7b)
+## Web app deployment (Apache / PHP)
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/0c0c492c-68a9-40f6-abc7-4708cebb4ce4)
+- Source files are under website/.
+- Copy files to Apache document root (e.g., /var/www/html).
+- Ensure PHP and MariaDB extensions are installed.
+- Start Apache:
+  `ash
+  sudo systemctl start apache2
+  `
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/53a3d43a-8750-4485-903e-90bddc18f355)
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/2748f3ae-4d59-4e7c-b26a-74f4c9c4c0a1)
+## Azure infrastructure
 
-![image](https://github.com/Tejas-K90/Grocery-Management/assets/61987805/e739fdc4-3026-4c4a-aca3-d2ce0ad6b568)
+This project uses these Azure services:
+- Azure Kubernetes Service (AKS): managed cluster for container orchestration
+- Azure Load Balancer: traffic distribution and high availability
+- Virtual Machine Scale Set (VMSS): auto-scale VM fleet for infrastructure automation
+- GitHub Actions: CI pipeline (build image, push to Docker Hub)
 
-# _______________Thank-You_________________
+
+## Terraform workflow
+
+1. Initialize:
+   `ash
+   cd Terraform
+   terraform init
+   `
+2. Plan and apply:
+   `ash
+   terraform plan
+   terraform apply -auto-approve
+   `
+3. Monitor startup script
+   `ash
+   watch -n 1 tail -n 40 /var/log/startup-script.log
+   `
+
+
+## Kubernetes deployment (AKS)
+
+1. Apply Kubernetes manifests from kubernetes/:
+   `ash
+   kubectl apply -f kubernetes/
+   `
+2. Verify pod status:
+   `ash
+   kubectl get pods -n <namespace>
+   `
+3. Access application via external IP from load balancer.
+
+
+## Documentation
+
+For detailed setup and architectural diagrams, refer to:
+- Project-Documentation.pdf
+
+
+## Notes
+
+- Ensure you have Azure CLI configured and authenticated before running Terraform.
+- Update image tags and registry credentials in GitHub Actions workflow if required.
+
+
+## License
+
+This project is provided as-is for learning and demonstration purposes.
+
+## Acknowledgements
+
+- Built with Docker, Terraform, GitHub Actions, Azure AKS, MariaDB, PHP
+
